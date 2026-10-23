@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: hibernate-cache-lab-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: cachelab
+      POSTGRES_USER: lab
+      POSTGRES_PASSWORD: lab
+    ports:
+      - "5432:5432"
+    volumes:
+      - cachelab_data:/var/lib/postgresql/data
+
+volumes:
+  cachelab_data:
